@@ -1,0 +1,39 @@
+   Check all the important portals of Stackharbor and update the below points.
+And
+    close bug as scheduled task after updating the details.
+
+
+1. Is there any unread/not responded messages in Slack (DM/Group message):
+
+   No
+
+
+2. Is there any responded message pending for further followups:
+
+   No
+
+
+3. Is there any critical alerts in PagerDuty:
+
+  NO
+
+4. Is there any critical alerts in Site24x7:
+
+  No
+
+
+5. Is there any notifications in 247.operations@stackharbor.com?
+
+ No
+
+
+6. Is there any notifications in operations@stackharbor.com?
+
+ No
+
+
+7. Is there any pending tickets in Helpdesk without bug?
+
+   No
+
+

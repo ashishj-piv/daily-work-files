@@ -1,0 +1,318 @@
+1)#768976 - Server VERY Slow 
+Currently all of the sites on our server are running extremely slowly. Normally this type of behaviour happens when we're getting hit by an attack or some processes are having issues and results in very high CPU. But the CPU is all within normal ranges... Our hard drive is at 91% capacity, but I typically let this get to 94% before adding more space, it hasn't affected slowness like this and there is still 63GB available...
+
+Are you able to see any reasons for this? For example collaborativehausmarketing.com, edcns.ca, clh.on.ca, etc.
+
+Server: web-6c4h.hostresolver.net
+IP: 205.204.80.222
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Some of the fixes that can be suggested:
+
+Block Unwanted Traffic
+  -using csf
+Optimize WordPress Performance
+  - disable auomatic updates
+PHP-FPM & Apache Tweaks
+  - Restarting PHP-FPM
+Disk Space cleanup
+  -can delete old logs and temp files
+
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2)#873859 - Backups of our wordpress site
+Hello, please stop all backups of our wordpress sites on our server ASAP, because we only have 1 image backup for each site on our server and we don't want to override our oldest back up.
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+web-s5f4.hostresolver.net
+IP: 205.204.80.163
+
+Disable cPanel Backups
+
+  ->  Log in to WHM > Backup Configuration
+    Uncheck "Enable Backups" and save
+
+  -> Disable WordPress Plugin Backups
+     Log into each WordPress site
+     Disable backups in UpdraftPlus, BackupBuddy, or Jetpack
+
+  ->Stop Cron Jobs Running Backups
+       crontab -l
+       crontab -e
+
+   ->Disable Backup Scripts
+        Check for scripts:
+             find / -name "*backup*" 2>/dev/null
+        Disable them:
+              mv /path/to/backup.sh /path/to/backup_disabled.sh
+   -> Verify & Kill Running Backup Processes
+           Check running backups:
+                 ps aux | grep backup
+            Kill any found processes:
+                  kill -9 [process_ID]
+
+   ->Restart Services
+              systemctl restart crond
+              systemctl restart apache2 
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- 
+3) #245453 - Error: ERR_NAME_NOT_RESOLVED
+
+Hello,
+We can no longer access the tamarun.fr website.
+We are getting the following error message: ERR_NAME_NOT_RESOLVED
+Could you please check?
+Thank you in advance.
+Sébastien
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-> re-b9v1.hostresolver.net.
+IP : 205.204.80.149
+
+
+issues it could be DNS misconfiguration, domain expiration, or server issues
+
+Check Domain Expiry & WHOIS Information
+Verify DNS Records - A record
+Check Nameserver (NS) Configuration - dig NS 
+Flush Local DNS Cache- sudo dscacheutil -flushcache
+                       sudo systemctl restart nscd
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+4)#650873 - Website Down 
+My website https://propertymanagepros.ca/ is down. It says
+
+propertymanagepros.ca is currently unable to handle this request.
+HTTP ERROR 500
+
+Thanks,
+Mike
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+propertymanagepros.ca
+
+- Check logs
+  Cpanel-Error-Metrics-propertymanagepros.ca
+
+- Increase PHP Memory Limit
+- Check for Plugin or Theme Issues(In wordpress)
+- Check File Permissions
+- Verify .htaccess for Errors
+
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+5)#586167 - Phone number footer and shop
+Hi,
+In the back office, all is well. But on the front line, we're checking. I did purge all, nothing.
+What's the problem?
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+https://www.avalancheskiwear.com/
+Bypass Cache & Force Refresh
+Check Browser Console for Errors
+Disable Caching & Minification Plugins
+Check Theme Overrides 
+Debug with Default Theme
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+6)#165757 - Zone manager issue
+account pouletdore.com seems to have an issue with zone manager / namservers.
+
+https://intodns.com/pouletdore.com
+
+We have changed A record to 173.209.38.131 but it still is not resolving to it.
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+rev3web.web-dns1.com.
+173.209.38.131
+
+-Verify DNS Propagation
+-Check Current DNS Records
+-Verify Nameservers
+-Flush DNS Cache
+-Restart DNS Services 
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+7)#636192 - WHM url access issue 
+
+Hi, we are unable to access WHM via https://mail.gjrealestate.ae:2087/cpsess4325660980/scripts2/tweaksettings , please let us know if the url is changed? If yes please provide the new URL.
+
+Thanks,
+Muhammad Shahid
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+web-8a4j.hostresolver.net.
+184.170.129.4
+
+Check WHM Access via Server IP
+Verify Hostname & DNS Resolution
+Restart cPanel & WHM Services
+Check Firewall & Port Access
+Check for SSL or Expired WHM Session
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+8)#408265 - Request for PTR Record Setup for Reverse DNS 
+
+Hi Team,
+
+We are experiencing an issue across all cPanel accounts on the WHM server, stating that the Reverse DNS (PTR) has problems.
+
+The error states the following:
+
+There is no reverse DNS configured for the IP address (68.71.54.175) that the system uses to send this domain’s outgoing email.
+
+To fix this problem, contact your system administrator and request that they create the following PTR record at “ns-1482.awsdns-57.org”, “ns-1882.awsdns-43.co.uk”, “ns-299.awsdns-37.com”, and “ns-654.awsdns-17.net”:
+Suggested “PTR” (PTR) Record PTR
+
+Name: 175.54.71.68.in-addr.arpa.
+Value: web-2m2s.hostresolver.net.
+
+Any guidance or assistance you could provide related to this issue would be greatly appreciated.
+
+Thank you for your assistance.
+
+Best regards,
+Bryan Bowen
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+web-2m2s.hostresolver.net.
+68.71.54.175
+
+
+Verify the Current PTR Record
+Determine IP Owner (Hosting Provider)
+Request PTR Record Change from Hosting Provider
+Verify PTR Record Update
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+9)#244196 - Cloudflare reporting server timing out 
+
+Hello
+We are getting server timing out errors reported from Cloudflare, could you investigate about any issues with the server?
+
+Also, no alert was received while the site was down, is there any threshold about monitoring before sending any alerts?
+
+Please advise.
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Check Server Availability
+Verify Server Response from Cloudflare
+Check Server Load & Resource Usage
+Review Firewall & Security Settings
+Check Web Server Error Logs
+Verify DNS Configuration
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+10)#288517 - Urgent Server Disk Space 
+Dear Support,
+
+It seems our sever 35.182.159.3 is out of disk space, could you please check urgently and solve the issue.
+
+
+Thanks
+Elias
+HEM
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ec2-35-182-159-3.ca-central-1.compute.amazonaws.com.
+
+35.182.159.3
+
+
+Check Disk Usage
+Identify Large Files & Directories
+Clean Up Log Files
+Remove Unused Packages & Caches
+Delete Old Backups
+Check for Large Temporary Files
+Check MySQL/MariaDB Storage 
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+11)#506782 - Adding IP address
+Hi Can you please add an ip on https://23-128-160-64.hostresolver.net/
+
+we want to have tabclix.com and all subdomains of it on a new IP
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+23-128-160-64.hostresolver.net
+
+Check Available IPs
+Assign New IP to tabclix.com
+ -In WHM (Recommended)
+    Log in to WHM.
+    Go to "Change Site’s IP Address".
+    Select tabclix.com from the list.
+    Choose the new IP address and click Change.
+Update DNS Records
+Verify IP Change
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+12)#462147 - Permission problem on server web-8j3k.hostresolver.net 
+Hello,
+
+The website UPPLR (PHP) can write on file on server web-8j3k.hostresolver.net. The ownership and permissions are the same as on all the website on other sites.
+I don't understand, can you help me.
+
+Thanks
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+web-8j3k.hostresolver.net
+
+Check File & Directory Permissions
+Verify Ownership
+Check PHP Handler & Web Server Configuration
+Check for Disk Space Issues
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+13)#741823 - propegation 
+hi, for triainc.com , we changed A record to point to a new IP, but there seems to be a propegation issue.
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-Verify the Current DNS Records
+  dig +short triainc.com
+-Check TTL (Time To Live) Settings
+  dig triainc.com +nocmd +noall +answer
+-Flush Local & Server DNS Cache
+  ipconfig /flushdns
+-Verify Nameservers & WHOIS Data
+  whois triainc.com
+  dig triainc.com NS
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+14)#679397 - Backup needed 
+Is there a way of recieving the oldest backup file we have of lab1.ca . Specifically the emails of these accounts: atrohanel@lab1.ca rh@lab1.ca where emails were deleted by a disgruntled employee of the client.
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ Check Available Backups
+   cpanel/whm -  Backup → Restore.
+ Restore Emails for Specific Accounts
+     full account backups
+     individual email backups 
+ Contact Hosting Provider (If No Backup is Found)
+ Restore via WHM
+   WHM->Backup Restoration->oldest backup date->mail directory
+    --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ 
+ 15)#525907 - web-7a9r is unresponsive
+Currently getting timeout on every request to anything on web-7a9r.
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  Ping the Server
+           ping web-7a9r.hostresolver.net
+ 
+  Check SSH Access
+          ssh root@web-7a9r
+  Check Resource Usage
+         top
+         df -h
+  High Traffic or Attack
+          netstat -tn | grep ':80 ' | wc -l
+ 
+ Restart Key Services
+    systemctl restart httpd 
+    systemctl restart nginx
+    systemctl restart php-fpm
+    systemctl restart mysql
+ Reboot the Server
+     reboot
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------

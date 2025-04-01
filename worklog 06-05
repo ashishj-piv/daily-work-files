@@ -1,0 +1,30 @@
+Worklog
+06/03/2025 Thursday
+Shift: 3PM-11PM
+
+
+Read some old SH tickets to understand the procedure
+
+#442632 - Fwd: [hosting.jackfield.ca]  New Security Advisor notifications with High importance
+#823286 - File not accessable and server upscaling for bo reasons
+#355904 - Unexplained 503s (web-7a9r)
+#117631 - Website keeps crashing (Merged)
+#484626 - New Server Deployment and Configuration Queries
+#891247 - Ticket #484626 - ACCES BLOQUE
+#164540 - Metting
+#581949 - SSL Expired
+#973553 - Adding 10 dedicated IP addresses to a WHM account
+#826706 - Process killed - Urgent
+#951926 - CPANEL is not opening for https://web-1w4a.hostresolver.net:2087/
+#401851 - Urgent - avalancheskiwear.com
+#234883 - cpanel-01.run.hostin.network _ gipsap.re
+#450561 - Protect MSSQL and MySQL services behind Firewall
+#457674 - invoice request
+
+SH procedure class by Danny(Trainer)
+
+Completed Audit for the following server:
+Audit for the month of Mar 2025 of the server host_da.domatic.net has been successfully completed [204.93.215.170]
+Audit for the month of Mar 2025 of the server server1.pluro.ai has been successfully completed [18.199.111.122]
+
+Referred the linux commands that the trainer(Danny) asked to do and prepared a note and submitted.

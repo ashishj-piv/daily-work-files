@@ -1,0 +1,48 @@
+ 1. For Test environment, use the below checklist:
+-----------------
+Environment and Version (Test-v1,v2 ) :
+Instances (main/replica) :
+Micro-service (eg : inventory/ukho/user) :
+Branch to be deployed :
+
+
+2. For Pre-prod environment, use the below checklist:
+-----------------
+Environment and Version (Pre Prod-v1,v2 ) :
+Instances (main/replica) :
+Micro-service (eg : inventory/ukho/user) :
+Branch to be deployed :
+
+Did you check the disk space? (yes/no) :
+Did you check for existing backup? (yes/no) :
+Did you remove the existing backup? (yes/no) :
+Did you created new directory and backup completed? (yes/no) :
+Did you confirmed branch? (yes/no) :
+Did you pulled code? (yes/no) :
+Deployment completed? (yes/no) :
+
+
+3. For prod environment, use the below checklist:
+-----------------
+Environment and Version (Prod-v1,v2,v3) :
+Instances (main/replica) :
+Micro-service (eg : inventory/ukho/user) :
+Branch to be deployed :
+
+Did you De-registered the target group? (yes/no) :
+Target group Name :
+Did you check the disk space? (yes/no) :
+Did you check for existing backup? (yes/no) :
+Did you remove the existing backup? (yes/no) :
+Did you created new directory and backup completed? (yes/no) :
+Did you confirmed branch? (yes/no) :
+Did you pulled code? (yes/no) :
+Deployment completed? (yes/no) :
+
+
+
+
+----------------------------------------------------------------------------
+
+
+sudo cp -prvf tagworx-inventory /backup/tagworx-inventory`date +%m-%d-%Y`/

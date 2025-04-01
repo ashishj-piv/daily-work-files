@@ -1,0 +1,43 @@
+Summary: 	[Ticket ID: 549882] ALARM: "Elevated HTTP 500 errors in Ireland Region" in EU (Ireland)
+Ticket No: 	549882 (2)
+Bug#: 	26573404
+
+
+Summary: 	[Ticket ID: 017242] ALARM: "IRL3-GreaterThanOrEqualToThreshold-CPUUtilization" in EU (Ireland)
+Ticket No: 	017242 (1)
+Bug#: 	26573420
+
+
+
+Summary: 	Ticket #93383 - Magnum Paving - Tamara Garcia - Access to operation folder
+Ticket No: 	93383 (1)
+Bug#: 	26574248
+
+
+
+Summary: 	Ticket #93385 - PaveAmerica - Sophos MDR | Severity: High | Case ID: [2-514919]
+Ticket No: 	93385 (1)
+Bug#: 	26574373
+
+
+
+Summary: 	Ticket #93384 - Survey Closing: Would you recommend Sophos MDR?
+Ticket No: 	93384 (1)
+Bug#: 	26574453
+
+
+
+
+
+Summary: 	Ticket #93387 - Re: PaveAmerica - Sophos MDR | Severity: High | Case ID: [2-515014]
+Ticket No: 	93387 (1)
+Bug#: 	26574459
+
+
+
+
+Monitored shift
+Monitored chats
+Fixed: 26574248   26574373   26574459
+closed: 26574453
+Alerts: 26573404  26573420

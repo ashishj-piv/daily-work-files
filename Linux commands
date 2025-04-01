@@ -1,0 +1,150 @@
+Linux commands used in webhosting:
+
+1. ls (List files)
+    Explanation: Displays the contents of a directory.
+    Example: ls -l shows files with details like permissions, size, and timestamps.
+
+2. cd (Change directory)
+
+    Explanation: Changes the current directory to a specified path.
+    Example: cd /var/www/ changes the directory to /var/www/.
+
+3. cp (Copy files)
+
+    Explanation: Copies files or directories from one location to another.
+    Example: cp file.txt /backup/ copies file.txt to the /backup/ directory.
+
+4. mv (Move or rename files)
+
+    Explanation: Moves or renames files or directories.
+    Example: mv oldname.txt newname.txt renames oldname.txt to newname.txt.
+
+5. rm (Remove files)
+
+    Explanation: Deletes files or directories.
+    Example: rm -rf /var/www/html/oldfiles removes files or directories recursively and forcefully.
+
+6. chmod (Change file permissions)
+
+    Explanation: Changes the access permissions of files or directories.
+    Example: chmod 755 script.sh gives read, write, and execute permissions to the owner, and read and execute to others.
+
+7. chown (Change file owner)
+
+    Explanation: Changes the ownership of files or directories.
+    Example: chown user:user file.txt changes the ownership of file.txt to the user user.
+
+8. nano / vim / vi (Text editors)
+
+    Explanation: Opens files in a terminal-based text editor for editing.
+    Example: nano /etc/apache2/apache2.conf opens the Apache configuration file in the nano editor.
+
+9. cat (Concatenate and display content)
+
+    Explanation: Displays the content of files.
+    Example: cat /var/log/apache2/access.log shows the Apache access logs.
+
+10. grep (Search within files)
+
+    Explanation: Searches for specific text patterns within files.
+    Example: grep "error" /var/log/apache2/error.log searches for "error" in the Apache error log.
+
+11. find (Search for files)
+
+    Explanation: Searches for files in a directory hierarchy.
+    Example: find /var/www/ -name "*.html" searches for all .html files in /var/www/.
+
+12. df (Disk space usage)
+
+    Explanation: Displays information about disk space usage on the system.
+    Example: df -h shows disk space usage in a human-readable format.
+
+13. du (Disk usage)
+
+    Explanation: Displays the disk usage of files and directories.
+    Example: du -sh /var/www/ shows the total size of the /var/www/ directory.
+
+14. ps (Process status)
+
+    Explanation: Shows a list of running processes.
+    Example: ps aux shows all running processes with details.
+
+15. top (Task manager)
+
+    Explanation: Displays real-time information about processes, memory, and CPU usage.
+    Example: top displays system resource usage.
+
+16. service / systemctl (Service management)
+
+    Explanation: Starts, stops, or manages services (like Apache, MySQL).
+    Example: systemctl start apache2 starts the Apache web server.
+
+17. restart / reload (Service restart or reload)
+
+    Explanation: Restarts or reloads a service to apply changes.
+    Example: systemctl restart nginx restarts the Nginx web server.
+
+18. wget (Download files from the web)
+
+    Explanation: Downloads files from a URL.
+    Example: wget http://example.com/file.zip downloads file.zip from the given URL.
+
+19. curl (Transfer data from or to a server)
+
+    Explanation: Transfers data using various protocols like HTTP, FTP.
+    Example: curl http://example.com fetches the content of the website.
+
+20. scp (Secure copy)
+
+    Explanation: Securely copies files between servers over SSH.
+    Example: scp file.txt user@remote:/path/to/destination/ copies file.txt to a remote server.
+
+21. rsync (Sync files between locations)
+
+    Explanation: Efficiently syncs files between directories or remote servers.
+    Example: rsync -avz /local/dir user@remote:/remote/dir/ syncs directories.
+
+22. iptables (Firewall configuration)
+
+    Explanation: Configures network filtering rules on a Linux server.
+    Example: iptables -A INPUT -p tcp --dport 80 -j ACCEPT allows HTTP traffic.
+
+23. firewalld (Firewall management)
+
+    Explanation: A dynamic firewall manager for managing firewall rules.
+    Example: firewall-cmd --add-port=80/tcp --permanent opens port 80 permanently.
+
+24. nano / vim (Text editors)
+
+    Explanation: Opens files for editing directly in the terminal.
+    Example: nano /etc/nginx/nginx.conf opens the Nginx configuration file for editing.
+
+25. htop (Interactive process viewer)
+
+    Explanation: An interactive process viewer for Unix systems.
+    Example: htop provides a more user-friendly way to monitor processes.
+
+26. mysql (MySQL/MariaDB database management)
+
+    Explanation: Command-line tool for interacting with MySQL or MariaDB databases.
+    Example: mysql -u root -p connects to the MySQL server.
+
+27. apache2ctl (Control Apache HTTP server)
+
+    Explanation: Manages the Apache web server.
+    Example: apache2ctl -k restart restarts Apache.
+
+28. nginx (Manage Nginx server)
+
+    Explanation: Manages the Nginx web server.
+    Example: nginx -t checks the configuration for syntax errors.
+
+29. adduser (Add a new user)
+
+    Explanation: Adds a new user to the system.
+    Example: adduser newuser creates a new user newuser.
+
+30. sudo (Execute a command as another user)
+
+    Explanation: Runs commands with superuser privileges.
+    Example: sudo systemctl restart apache2 restarts Apache as a superuser.
