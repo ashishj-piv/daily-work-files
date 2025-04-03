@@ -1,0 +1,88 @@
+Summary: 	Ticket #94880 - Egnyte Notification: storage alert
+Ticket No: 	94880 (1)
+Bug#: 	26605981
+
+Summary: 	Ticket #94883 - Security alert for stephanie.aplus@gmail.com
+Ticket No: 	94883 (1)
+Bug#: 	26606249
+
+Summary: 	Ticket #94885 - Your Cloudflare account has been accessed from a new IP address
+Ticket No: 	94885 (1)
+Bug#: 	26606258
+
+
+Summary: 	Ticket #94888 - Trash contents to be purged on Apr 3, 2025 7:00 PM
+Ticket No: 	94888 (1)
+Bug#: 	26606332
+
+
+Summary: 	Ticket #94889 - [HIGH] Alert for Sophos Central [PaveAmerica]: Firewall lost connection to Sophos Central
+Ticket No: 	94889 (1)
+Bug#: 	26606428
+
+
+
+Summary: 	Server Audit April-2025
+Ticket No: 	April-2025 (6)
+Bug#: 	26606237
+
+
+Summary: 	Server Audit April-2025
+Ticket No: 	April-2025 (6)
+Bug#: 	26606327
+
+
+Summary: 	Server Audit April-2025
+Ticket No: 	April-2025 (6)
+Bug#: 	26606405
+
+
+
+Summary: 	Ticket #94890 - [The job succeeded.] SQL Server Job System: '5L - Alignment Sync' completed on \\FG-DW-PROD01\DW.
+Ticket No: 	94890 (1)
+Bug#: 	26606880
+
+
+
+Summary: 	Ticket #94889 - [HIGH] Alert for Sophos Central [PaveAmerica]: Firewall lost connection to Sophos Central
+Ticket No: 	94889 (2)
+Bug#: 	26606898
+
+
+
+Summary: 	Ticket #94891 - DataLake Integration Log Error Daily Report
+Ticket No: 	94891 (1)
+Bug#: 	26606874
+
+
+
+Summary: 	[23-128-160-104.hostresolver.net] DISKCRITICAL blocks ⛔: Mount Point “/backup” (23.128.160.104): 88.25 GB/98.3 GB - 94.860935%
+Ticket No: 	23-128 (907)
+Bug#: 	26607096
+
+
+
+Summary: 	Ticket #94892 - DataLake Integration Log Error Daily Report
+Ticket No: 	94892 (1)
+Bug#: 	26607426
+
+
+Summary: 	Ticket #94897 - UKG Failed Location(s)
+Ticket No: 	94897 (1)
+Bug#: 	26607445
+
+
+
+Summary: 	[Ticket ID: 223562] ALARM: "sw2-lon2-prod-High-CPU-Utilization" in EU (London)
+Ticket No: 	223562 (1)
+Bug#: 	26607704
+
+
+
+
+02-04-2025
+Monitored shift
+Monitored chats
+Fixed: 26605981 26606874 26607426  26606249 26606258 26606332 26606428 26606880 26606898 26607445 
+Alert: 26607096 26607704 
+Audit: 26606237 26606327 26606405 
