@@ -1,3 +1,106 @@
 Summary: 	Ticket #95050 - RE: Trouble Getting Your Emails Into The Inbox? Not Any More.
 Ticket No: 	95050 (1)
 Bug#: 	26613099
+
+
+
+Summary: 	Ticket #95051 - Trash contents to be purged on Apr 4, 2025 8:00 PM
+Ticket No: 	95051 (1)
+Bug#: 	26613258
+
+
+Summary: 	Ticket #95053 - Trash contents to be purged on Apr 4, 2025 8:00 PM
+Ticket No: 	95053 (1)
+Bug#: 	26613260
+
+
+
+
+Summary: 	[Stonebranch] Is there an available UT for Oracle Integration Cloud
+Ticket No: 	CB-stone-1743651081 (1)
+Bug#: 	26613320
+
+
+Summary: 	Ticket #95055 - Trash contents to be purged on Apr 4, 2025 8:00 PM
+Ticket No: 	95055 (1)
+Bug#: 	26613395
+
+
+
+Summary: 	[Stonebranch] Re: Is there an available UT for Oracle Integration
+Ticket No: 	135668 (2)
+Bug#: 	26613398
+
+
+
+
+Summary: 	Ticket #95056 - PA-Platinum - Josh Mclendon - Not Receiving Password Recovery Emails
+Ticket No: 	95056 (1)
+Bug#: 	26613613
+
+
+
+Summary: 	Ticket #95057 - [HIGH] Alert for Sophos Central [PaveAmerica]: Firewall lost connection to Sophos Central
+Ticket No: 	95057 (1)
+Bug#: 	26613614
+
+
+
+Summary: 	Ticket #95060 - DataLake Integration Log Error Daily Report
+Ticket No: 	95060 (1)
+Bug#: 	26614230
+
+
+
+Summary: 	Ticket #95058 - View your Exchange Online (Plan 2) invoice
+Ticket No: 	95058 (1)
+Bug#: 	26614226
+
+
+Summary: 	[Ticket ID: 191224] EC2 Run Command Notification us-east-1
+Ticket No: 	191224 (1)
+Bug#: 	26613715
+
+
+Summary: 	[Ticket ID: 051161] EC2 Run Command Notification ca-central-1
+Ticket No: 	051161 (1)
+Bug#: 	26614146
+
+
+Summary: 	Ticket #95061 - DataLake Integration Log Error Daily Report
+Ticket No: 	95061 (1)
+Bug#: 	26614328
+
+
+Summary: 	Ticket #95066 - Anacron job 'cron.daily' on ws1.agendasec.com
+Ticket No: 	95066 (1)
+Bug#: 	26614751
+
+
+
+Summary: 	Ticket #95064 - [ws1.agendasec.com] WordPress Updates Digest
+Ticket No: 	95064 (1)
+Bug#: 	26614744
+
+
+Summary: 	[Ticket ID: 220962] ALARM: "UnHealthyHostCount on lon-panelpull Target group in eu-west-2-London" in EU (London)
+Ticket No: 	220962 (1)
+Bug#: 	26614776
+
+
+Summary: 	Ticket #95067 - [HIGH] Alert for Sophos Central [FiveGuys]: Firewall gateway down
+Ticket No: 	95067 (1)
+Bug#: 	26614866
+
+
+
+
+
+
+
+Monitored shift
+Monitored chats
+Fixed:  26613320 26613398 26613613 26613715 26614146 26614230 26614328 26614744 
+26613099 26613258 26613260 26613395 26613614 26614226 26614751 26614866 
+Alerts:26614776 
+
