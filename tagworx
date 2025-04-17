@@ -1,0 +1,100 @@
+ ##Detailed Timeline & Actions
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   Initial Configuration & Buildspec Troubleshooting
+
+    Repeated edits and validations of buildspec.yml using:
+
+       - vi buildspec.yml
+       - cat buildspec.yml
+~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~
+##Encountered PM2 permission errors:
+~~~~~~~~~~~~~~
+    [PM2][ERROR] Permission denied, to give access to current user:
+    sudo chown ubuntu:ubuntu /home/ubuntu/.pm2/rpc.sock
+
+ Resolution:
+
+        - sudo chown -R ubuntu:ubuntu /home/ubuntu/.pm2
+~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~
+ ##Node.js Version Conflict in CodeBuild
+
+    Error during yarn install:
+
+       The engine "node" is incompatible with this module. Expected version ">=16". Got "14.21.3"
+
+ Resolution:
+
+     Remove preinstalled Node.js:
+
+        -sudo apt remove -y nodejs
+
+   Install NVM and Node.js v16:
+
+      - curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
+      - export NVM_DIR="$HOME/.nvm"
+      - source "$NVM_DIR/nvm.sh"
+      - nvm install 16
+      - nvm use 16
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ Finalized buildspec.yml Script
+
+ Used consistent Node.js version across all phases.
+
+snippet:
+~~~~~~~~~~
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      nodejs: null
+    commands:
+      - curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
+      - export NVM_DIR="$HOME/.nvm"
+      - source "$NVM_DIR/nvm.sh"
+      - nvm install 16
+      - nvm use 16
+      - node -v
+      - yarn -v
+  build:
+    commands:
+      - cd core
+      - yarn install
+      - yarn test
+artifacts:
+  files:
+    - '**/*'
+
+~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ ##AfterInstallHook.sh Script for Deployment
+
+##Final script stored in:
+
+/scripts/AfterInstallHook.sh
+~~~~~!
+#!/bin/bash
+set -e
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+nvm use 16
+
+echo "Using Node version: $(node -v)"
+echo "Using Yarn version: $(yarn -v)"
+
+rm -rf /home/ubuntu/tagworx-inventory/node_modules
+cd /home/ubuntu/tagworx-inventory/
+
+yarn install
+NODE_OPTIONS=--max_old_space_size=4096
+yarn build-no-cache
+yarn build
+
+cd /home/ubuntu/tagworx-inventory/server
+pm2 delete tagworx-inventory || true
+pm2 start . --name tagworx-inventory --time
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+

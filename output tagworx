@@ -1,0 +1,265 @@
+ubuntu@ip-172-31-23-182:~/tagworx-inventory/scripts$ bash AfterInstallHook.sh
+Now using node v16.20.2 (npm v8.19.4)
+Using Node version: v16.20.2
+Using Yarn version: 1.22.5
+yarn install v1.22.5
+[1/4] Resolving packages...
+[2/4] Fetching packages...
+info fsevents@2.3.2: The platform "linux" is incompatible with this module.
+info "fsevents@2.3.2" is an optional dependency and failed compatibility check. Excluding it from installation.
+info @swc/core-android-arm-eabi@1.2.168: The platform "linux" is incompatible with this module.
+info "@swc/core-android-arm-eabi@1.2.168" is an optional dependency and failed compatibility check. Excluding it from installation.
+info @swc/core-android-arm-eabi@1.2.168: The CPU architecture "x64" is incompatible with this module.
+info @swc/core-android-arm64@1.2.168: The platform "linux" is incompatible with this module.
+info "@swc/core-android-arm64@1.2.168" is an optional dependency and failed compatibility check. Excluding it from installation.
+info @swc/core-android-arm64@1.2.168: The CPU architecture "x64" is incompatible with this module.
+info @swc/core-darwin-arm64@1.2.168: The platform "linux" is incompatible with this module.
+info "@swc/core-darwin-arm64@1.2.168" is an optional dependency and failed compatibility check. Excluding it from installation.
+info @swc/core-darwin-arm64@1.2.168: The CPU architecture "x64" is incompatible with this module.
+info @swc/core-darwin-x64@1.2.168: The platform "linux" is incompatible with this module.
+info "@swc/core-darwin-x64@1.2.168" is an optional dependency and failed compatibility check. Excluding it from installation.
+info @swc/core-freebsd-x64@1.2.168: The platform "linux" is incompatible with this module.
+info "@swc/core-freebsd-x64@1.2.168" is an optional dependency and failed compatibility check. Excluding it from installation.
+info @swc/core-linux-arm-gnueabihf@1.2.168: The CPU architecture "x64" is incompatible with this module.
+info "@swc/core-linux-arm-gnueabihf@1.2.168" is an optional dependency and failed compatibility check. Excluding it from installation.
+info @swc/core-linux-arm64-gnu@1.2.168: The CPU architecture "x64" is incompatible with this module.
+info "@swc/core-linux-arm64-gnu@1.2.168" is an optional dependency and failed compatibility check. Excluding it from installation.
+info @swc/core-linux-arm64-musl@1.2.168: The CPU architecture "x64" is incompatible with this module.
+info "@swc/core-linux-arm64-musl@1.2.168" is an optional dependency and failed compatibility check. Excluding it from installation.
+info @swc/core-win32-arm64-msvc@1.2.168: The platform "linux" is incompatible with this module.
+info "@swc/core-win32-arm64-msvc@1.2.168" is an optional dependency and failed compatibility check. Excluding it from installation.
+info @swc/core-win32-arm64-msvc@1.2.168: The CPU architecture "x64" is incompatible with this module.
+info @swc/core-win32-ia32-msvc@1.2.168: The platform "linux" is incompatible with this module.
+info "@swc/core-win32-ia32-msvc@1.2.168" is an optional dependency and failed compatibility check. Excluding it from installation.
+info @swc/core-win32-ia32-msvc@1.2.168: The CPU architecture "x64" is incompatible with this module.
+info @swc/core-win32-x64-msvc@1.2.168: The platform "linux" is incompatible with this module.
+info "@swc/core-win32-x64-msvc@1.2.168" is an optional dependency and failed compatibility check. Excluding it from installation.
+info fsevents@2.1.2: The platform "linux" is incompatible with this module.
+info "fsevents@2.1.2" is an optional dependency and failed compatibility check. Excluding it from installation.
+info fsevents@1.2.13: The platform "linux" is incompatible with this module.
+info "fsevents@1.2.13" is an optional dependency and failed compatibility check. Excluding it from installation.
+[3/4] Linking dependencies...
+warning "lerna > @lerna/version > @lerna/github-client > @octokit/rest > @octokit/plugin-request-log@1.0.4" has unmet peer dependency "@octokit/core@>=3".
+warning "workspace-aggregator-de8ecc6f-a362-4a1f-958d-d9c2865bb999 > @tagworx/server > symbology@3.0.13" has unmet peer dependency "@mapbox/node-pre-gyp@^1.0.2".
+warning "workspace-aggregator-de8ecc6f-a362-4a1f-958d-d9c2865bb999 > @tagworx/server > tslint-config-airbnb@5.11.2" has incorrect peer dependency "tslint@^5.11.0".
+warning "workspace-aggregator-de8ecc6f-a362-4a1f-958d-d9c2865bb999 > @tagworx/server > tslint-no-unused@0.2.0-alpha.1" has incorrect peer dependency "tslint@^5.10.0".
+warning "workspace-aggregator-de8ecc6f-a362-4a1f-958d-d9c2865bb999 > @tagworx/client > @chakra-ui/react@1.8.8" has unmet peer dependency "@emotion/react@^11.0.0".
+warning "workspace-aggregator-de8ecc6f-a362-4a1f-958d-d9c2865bb999 > @tagworx/client > @chakra-ui/react@1.8.8" has unmet peer dependency "@emotion/styled@^11.0.0".
+warning "workspace-aggregator-de8ecc6f-a362-4a1f-958d-d9c2865bb999 > @tagworx/client > @chakra-ui/react@1.8.8" has unmet peer dependency "framer-motion@3.x || 4.x || 5.x || 6.x".
+warning "workspace-aggregator-de8ecc6f-a362-4a1f-958d-d9c2865bb999 > @tagworx/client > react-dropdown-select@4.11.3" has unmet peer dependency "prop-types@>=15.7.2".
+warning "workspace-aggregator-de8ecc6f-a362-4a1f-958d-d9c2865bb999 > @tagworx/client > react-sortable-tree@2.8.0" has unmet peer dependency "react-dnd@^7.3.0".
+warning "workspace-aggregator-de8ecc6f-a362-4a1f-958d-d9c2865bb999 > @tagworx/client > react-spreadsheet@0.9.2" has unmet peer dependency "scheduler@>=0.19.0".
+warning "workspace-aggregator-de8ecc6f-a362-4a1f-958d-d9c2865bb999 > @tagworx/client > recharts@2.6.2" has unmet peer dependency "prop-types@^15.6.0".
+warning "workspace-aggregator-de8ecc6f-a362-4a1f-958d-d9c2865bb999 > @tagworx/client > recoil-nexus@0.5.1" has incorrect peer dependency "typescript@>=4.1.0".
+warning "workspace-aggregator-de8ecc6f-a362-4a1f-958d-d9c2865bb999 > @tagworx/client > slick-carousel@1.8.1" has unmet peer dependency "jquery@>=1.8.0".
+warning "workspace-aggregator-de8ecc6f-a362-4a1f-958d-d9c2865bb999 > @tagworx/server > tslint-config-airbnb > tslint-consistent-codestyle@1.16.0" has incorrect peer dependency "tslint@^5.0.0".
+warning "workspace-aggregator-de8ecc6f-a362-4a1f-958d-d9c2865bb999 > @tagworx/server > tslint-config-airbnb > tslint-eslint-rules@5.4.0" has incorrect peer dependency "tslint@^5.0.0".
+warning "workspace-aggregator-de8ecc6f-a362-4a1f-958d-d9c2865bb999 > @tagworx/server > tslint-config-airbnb > tslint-eslint-rules@5.4.0" has incorrect peer dependency "typescript@^2.2.0 || ^3.0.0".
+warning "workspace-aggregator-de8ecc6f-a362-4a1f-958d-d9c2865bb999 > @tagworx/server > tslint-config-airbnb > tslint-microsoft-contrib@5.2.1" has incorrect peer dependency "tslint@^5.1.0".
+warning "workspace-aggregator-de8ecc6f-a362-4a1f-958d-d9c2865bb999 > @tagworx/server > tslint-config-airbnb > tslint-microsoft-contrib@5.2.1" has incorrect peer dependency "typescript@^2.1.0 || ^3.0.0".
+warning "workspace-aggregator-de8ecc6f-a362-4a1f-958d-d9c2865bb999 > @tagworx/client > @chakra-ui/react > @chakra-ui/accordion@1.4.11" has unmet peer dependency "framer-motion@3.x || 4.x || 5.x || 6.x".
+warning "workspace-aggregator-de8ecc6f-a362-4a1f-958d-d9c2865bb999 > @tagworx/client > @chakra-ui/react > @chakra-ui/checkbox@1.7.1" has unmet peer dependency "framer-motion@3.x || 4.x || 5.x || 6.x".
+warning "workspace-aggregator-de8ecc6f-a362-4a1f-958d-d9c2865bb999 > @tagworx/client > @chakra-ui/react > @chakra-ui/css-reset@1.1.3" has unmet peer dependency "@emotion/react@>=10.0.35".
+warning "workspace-aggregator-de8ecc6f-a362-4a1f-958d-d9c2865bb999 > @tagworx/client > @chakra-ui/react > @chakra-ui/menu@1.8.11" has unmet peer dependency "framer-motion@3.x || 4.x || 5.x || 6.x".
+warning "workspace-aggregator-de8ecc6f-a362-4a1f-958d-d9c2865bb999 > @tagworx/client > @chakra-ui/react > @chakra-ui/modal@1.11.1" has unmet peer dependency "framer-motion@3.x || 4.x || 5.x || 6.x".
+warning "workspace-aggregator-de8ecc6f-a362-4a1f-958d-d9c2865bb999 > @tagworx/client > @chakra-ui/react > @chakra-ui/popover@1.11.9" has unmet peer dependency "framer-motion@3.x || 4.x || 5.x || 6.x".
+warning "workspace-aggregator-de8ecc6f-a362-4a1f-958d-d9c2865bb999 > @tagworx/client > @chakra-ui/react > @chakra-ui/provider@1.7.14" has unmet peer dependency "@emotion/react@^11.0.0".
+warning "workspace-aggregator-de8ecc6f-a362-4a1f-958d-d9c2865bb999 > @tagworx/client > @chakra-ui/react > @chakra-ui/provider@1.7.14" has unmet peer dependency "@emotion/styled@^11.0.0".
+warning "workspace-aggregator-de8ecc6f-a362-4a1f-958d-d9c2865bb999 > @tagworx/client > @chakra-ui/react > @chakra-ui/skeleton@1.2.14" has unmet peer dependency "@emotion/react@^11.0.0".
+warning "workspace-aggregator-de8ecc6f-a362-4a1f-958d-d9c2865bb999 > @tagworx/client > @chakra-ui/react > @chakra-ui/skeleton@1.2.14" has unmet peer dependency "@emotion/styled@^11.0.0".
+warning "workspace-aggregator-de8ecc6f-a362-4a1f-958d-d9c2865bb999 > @tagworx/client > @chakra-ui/react > @chakra-ui/switch@1.3.10" has unmet peer dependency "framer-motion@3.x || 4.x || 5.x || 6.x".
+warning "workspace-aggregator-de8ecc6f-a362-4a1f-958d-d9c2865bb999 > @tagworx/client > @chakra-ui/react > @chakra-ui/system@1.12.1" has unmet peer dependency "@emotion/react@^11.0.0".
+warning "workspace-aggregator-de8ecc6f-a362-4a1f-958d-d9c2865bb999 > @tagworx/client > @chakra-ui/react > @chakra-ui/system@1.12.1" has unmet peer dependency "@emotion/styled@^11.0.0".
+warning "workspace-aggregator-de8ecc6f-a362-4a1f-958d-d9c2865bb999 > @tagworx/client > @chakra-ui/react > @chakra-ui/toast@1.5.9" has unmet peer dependency "framer-motion@3.x || 4.x || 5.x || 6.x".
+warning "workspace-aggregator-de8ecc6f-a362-4a1f-958d-d9c2865bb999 > @tagworx/client > @chakra-ui/react > @chakra-ui/tooltip@1.5.1" has unmet peer dependency "framer-motion@3.x || 4.x || 5.x || 6.x".
+warning "workspace-aggregator-de8ecc6f-a362-4a1f-958d-d9c2865bb999 > @tagworx/client > @chakra-ui/react > @chakra-ui/transition@1.4.8" has unmet peer dependency "framer-motion@3.x || 4.x || 5.x || 6.x".
+warning "workspace-aggregator-de8ecc6f-a362-4a1f-958d-d9c2865bb999 > @tagworx/client > react-select-async-paginate > @vtaits/use-lazy-ref@0.1.0" has incorrect peer dependency "react@^17.0.0 || ^18.0.0".
+warning "workspace-aggregator-de8ecc6f-a362-4a1f-958d-d9c2865bb999 > @tagworx/client > react-sortable-tree > frontend-collective-react-dnd-scrollzone@1.0.2" has incorrect peer dependency "react-dnd@^7.3.0".
+warning "workspace-aggregator-de8ecc6f-a362-4a1f-958d-d9c2865bb999 > @tagworx/client > react-spreadsheet > use-context-selector@1.4.1" has unmet peer dependency "scheduler@>=0.19.0".
+warning "workspace-aggregator-de8ecc6f-a362-4a1f-958d-d9c2865bb999 > @tagworx/client > recharts > react-smooth@2.0.3" has unmet peer dependency "prop-types@^15.6.0".
+warning "workspace-aggregator-de8ecc6f-a362-4a1f-958d-d9c2865bb999 > @tagworx/server > tslint-config-airbnb > tslint-consistent-codestyle > @fimbul/bifrost@0.21.0" has incorrect peer dependency "tslint@^5.0.0".
+[4/4] Building fresh packages...
+$ npm run bootstrap
+
+> tagworx@2.14.0 bootstrap
+> lerna bootstrap
+
+lerna notice cli v3.22.1
+lerna info bootstrap root only
+yarn install v1.22.5
+[1/4] Resolving packages...
+success Already up-to-date.
+$ npm run bootstrap
+
+> tagworx@2.14.0 bootstrap
+> lerna bootstrap
+
+lerna notice cli v3.22.1
+lerna WARN bootstrap Skipping recursive execution
+Done in 2.48s.
+Done in 152.48s.
+yarn run v1.22.5
+$ nx run-many --target=build --all --skip-nx-cache
+
+    ✔  nx run core:build (42s)
+    ✔  nx run server:build (1m)
+    ✔  nx run client:build (4m)
+
+ —————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
+
+ >  NX   Successfully ran target build for 3 projects (4m)
+
+
+ >  NX   Nx Cloud Problems
+
+   - Error when connecting to Nx Cloud. Code: ENOTFOUND. Error: getaddrinfo ENOTFOUND api.nrwl.io.
+
+Done in 243.12s.
+yarn run v1.22.5
+$ nx run-many --target=build --all
+
+    ✔  nx run core:build  [existing outputs match the cache, left as is]
+    ✔  nx run client:build  [existing outputs match the cache, left as is]
+    ✔  nx run server:build  [existing outputs match the cache, left as is]
+
+ —————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
+
+ >  NX   Successfully ran target build for 3 projects (91ms)
+
+   Nx read the output from the cache instead of running the command for 3 out of 3 tasks.
+
+
+ >  NX   Nx Cloud Problems
+
+   - Cannot connect to Nx Cloud (scope: api, code: ENOTFOUND).
+
+Done in 12.89s.
+[PM2] Applying action deleteProcessId on app [tagworx-inventory](ids: [ 6 ])
+[PM2] [tagworx-inventory](6) ✓
+┌─────┬─────────────────────────┬─────────────┬─────────┬─────────┬──────────┬────────┬──────┬───────────┬──────────┬──────────┬──────────┬──────────┐
+│ id  │ name                    │ namespace   │ version │ mode    │ pid      │ uptime │ ↺    │ status    │ cpu      │ mem      │ user     │ watching │
+├─────┼─────────────────────────┼─────────────┼─────────┼─────────┼──────────┼────────┼──────┼───────────┼──────────┼──────────┼──────────┼──────────┤
+│ 7   │ tagworx-catering        │ default     │ N/A     │ fork    │ 1210     │ 2h     │ 0    │ online    │ 0%       │ 73.1mb   │ root     │ disabled │
+│ 1   │ tagworx-froch-orders    │ default     │ N/A     │ fork    │ 1072     │ 2h     │ 0    │ online    │ 0%       │ 73.7mb   │ root     │ disabled │
+│ 5   │ tagworx-orders-in       │ default     │ N/A     │ fork    │ 1137     │ 2h     │ 0    │ online    │ 0%       │ 73.2mb   │ root     │ disabled │
+│ 2   │ tagworx-pos             │ default     │ N/A     │ fork    │ 1083     │ 2h     │ 0    │ online    │ 0%       │ 73.3mb   │ root     │ disabled │
+│ 3   │ tagworx-stockcheck      │ default     │ 0.0.1   │ fork    │ 1092     │ 2h     │ 0    │ online    │ 0%       │ 77.8mb   │ root     │ disabled │
+│ 4   │ tagworx-ukho            │ default     │ 0.0.1   │ fork    │ 1104     │ 2h     │ 0    │ online    │ 0%       │ 79.7mb   │ root     │ disabled │
+│ 0   │ tagworx-user            │ default     │ 0.0.1   │ fork    │ N/A      │ 0      │ 0    │ stopped   │ 0%       │ 0b       │ root     │ disabled │
+└─────┴─────────────────────────┴─────────────┴─────────┴─────────┴──────────┴────────┴──────┴───────────┴──────────┴──────────┴──────────┴──────────┘
+[PM2] Starting /home/ubuntu/tagworx-inventory/server in fork_mode (1 instance)
+[PM2] Done.
+┌─────┬─────────────────────────┬─────────────┬─────────┬─────────┬──────────┬────────┬──────┬───────────┬──────────┬──────────┬──────────┬──────────┐
+│ id  │ name                    │ namespace   │ version │ mode    │ pid      │ uptime │ ↺    │ status    │ cpu      │ mem      │ user     │ watching │
+├─────┼─────────────────────────┼─────────────┼─────────┼─────────┼──────────┼────────┼──────┼───────────┼──────────┼──────────┼──────────┼──────────┤
+│ 7   │ tagworx-catering        │ default     │ N/A     │ fork    │ 1210     │ 2h     │ 0    │ online    │ 0%       │ 73.1mb   │ root     │ disabled │
+│ 1   │ tagworx-froch-orders    │ default     │ N/A     │ fork    │ 1072     │ 2h     │ 0    │ online    │ 0%       │ 73.7mb   │ root     │ disabled │
+│ 8   │ tagworx-inventory       │ default     │ 0.0.1   │ fork    │ 29616    │ 0s     │ 0    │ online    │ 0%       │ 26.1mb   │ ubuntu   │ disabled │
+│ 5   │ tagworx-orders-in       │ default     │ N/A     │ fork    │ 1137     │ 2h     │ 0    │ online    │ 0%       │ 73.2mb   │ root     │ disabled │
+│ 2   │ tagworx-pos             │ default     │ N/A     │ fork    │ 1083     │ 2h     │ 0    │ online    │ 0%       │ 73.3mb   │ root     │ disabled │
+│ 3   │ tagworx-stockcheck      │ default     │ 0.0.1   │ fork    │ 1092     │ 2h     │ 0    │ online    │ 0%       │ 77.8mb   │ root     │ disabled │
+│ 4   │ tagworx-ukho            │ default     │ 0.0.1   │ fork    │ 1104     │ 2h     │ 0    │ online    │ 0%       │ 79.7mb   │ root     │ disabled │
+│ 0   │ tagworx-user            │ default     │ 0.0.1   │ fork    │ N/A      │ 0      │ 0    │ stopped   │ 0%       │ 0b       │ root     │ disabled │
+└─────┴─────────────────────────┴─────────────┴─────────┴─────────┴──────────┴────────┴──────┴───────────┴──────────┴──────────┴──────────┴──────────┘
+ubuntu@ip-172-31-23-182:~/tagworx-inventory/scripts$
+
+
+
+
+
+-----------------------------------------------------------------------
+------------------------------------------------------------------------
+
+
+
+
+
+
+ubuntu@ip-172-31-23-182:~/tagworx-inventory$ git log --oneline
+56297055f (HEAD -> develop, origin/develop) Merged in develop-merge (pull request #2289)
+00305704e Merged in feature/TWX-2552_DeleteStockCheck (pull request #2287)
+86b5e8588 Merged in TWX-2533-setup-playwright (pull request #2288)
+15f2caa6b Merged in TWX-2533-setup-playwright (pull request #2279)
+69fe822f4 Merged in feature/TWX-2504-repeating-stock-check (pull request #2283)
+b9c471f05 Merged in push-dev (pull request #2285)
+cf3767208 Merged in push-dev (pull request #2282)
+4fec3b300 Merged in TWX-2526-cfm2-loc-anywhere (pull request #2281)
+84cfe4001 Merged in main (pull request #2280)
+daef42f84 Merged in TWX-2527-add-index (pull request #2277)
+0b8dc254d Merged in TWX-2526-cfm2-loc-anywhere (pull request #2276)
+175129c20 Merged in TWX-2491-fix-filter-order-detail (pull request #2266)
+c5251ce58 Merged in TWX-2523-move-keep-serialnumber (pull request #2275)
+c19646332 Merged in TWX-2523-move-keep-serialnumber (pull request #2273)
+279cb56fe Merged in TWX-2509-ukho-pic-first (pull request #2271)
+3509cd52c Merged in TWX-2516-fix-total-count (pull request #2262)
+2b752bb03 Add gitignore
+68958ecad Merged in feature/TWX-2505-app-scan-adjustments (pull request #2263)
+ee00f3794 fix: Fix the issue about calculating inventory total count
+f274b4b78 Merged in TWX-2519-customer-email (pull request #2261)
+cd34e1775 TWX-2519 Fix customer email included in flow details
+271303147 Merged in add-scanAt-flowOrder (pull request #2260)
+ed5203f6b Merged in TWX-2494-kits-cfm2 (pull request #2259)
+63cb75bc2 Merged in stage (pull request #2258)
+2f2f9e81b Merged in TWX-2512-archived-items (pull request #2257)
+cbe3428ba Merged in TWX-2512-archived-items (pull request #2256)
+55c6939ff Fix issues with labeling
+23ceaac4c Merge branch 'TWX-2471-activate-product' into TWX-2512-archived-items
+53eda8d10 Merge branch 'stage' of https://bitbucket.org/chris-stobbs/tagworx-inventory into TWX-2512-archived-items
+bbbedef75 Merged in TWX-2512-archived-items (pull request #2255)
+3289541d7 Respect Dc 022 location
+bd62029df Merged in TWX-2512-archived-items (pull request #2254)
+9ad02b953 TWX-2512 allow updating archived products in goods-in process
+87c5128f2 Merged in TWX-2494-kits-cfm2 (pull request #2253)
+b14791d86 Fix flow kit
+16fa3e63e Merge branch 'stage' of https://bitbucket.org/chris-stobbs/tagworx-inventory into TWX-2494-kits-cfm2
+5d21ac827 Merge branch 'TWX-2448-consumption-report' into TWX-2494-kits-cfm2
+950af143e Merged in feature/TWX-2422-stock-check-integration (pull request #2252)
+35e18a960 Merge branch 'TWX-2473-fix-flow-sage-sync' into TWX-2494-kits-cfm2
+05389cb72 Group by kit
+48d1455e4 Merge branch 'TWX-2309-capacity-dashboard-group-by-tag-repeat-due-to-stage-being-merged-into-dev'
+34df8b4bc Merged in fix-custom-stock-csv (pull request #2251)
+7769054d9 Merged in TWX-2486-pod-email (pull request #2250)
+c1e8d5c88 Merged in TWX-2473-fix-flow-sage-sync (pull request #2249)
+98dec6df9 Merged in TWX-2448-consumption-report (pull request #2236)
+3fc50799e Merged in TWX-2461-rule-modal-bug (pull request #2248)
+813b4aadd Merged in TWX-2486-pod-email (pull request #2247)
+49a7ddd34 Fix POD email
+85e5e89b2 Merged in add-scanAt-flowOrder (pull request #2246)
+fba07b423 hide fields
+5f4af1753 Merged in add-scanAt-flowOrder (pull request #2244)
+74afb1371 fix: Add the lastScannedAt field to flow order table
+cea343f7a Merge branch 'TWX-2309-capacity-dashboard-group-by-tag-repeat-due-to-stage-being-merged-into-dev' into stage
+bb30e023b fix: add null as default of lastScannedAt
+964228765 fix: add lastScannedAt field to floworder and change name
+2d21611e9 fix: Fix to change name from location to site and disable stock edit button
+3d06039be fix: Fix to go to inventory when done is clicked
+dccbe5aa2 Merged in TWX-2473-fix-flow-sage-sync (pull request #2243)
+7cb3575ee Fix cron service
+0d34ef52f Merged in fix-custom-stock-csv (pull request #2242)
+dffe9666a fix: Remove comment out to show import stock limit csv
+574a7628d Merged in TWX-2471-activate-product (pull request #2241)
+6d45d9572 TWX-2471 Activiate product
+c4bbbecb6 Merged in TWX-2473-fix-flow-sage-sync (pull request #2240)
+1d2fb0e87 TWX-2473 Fix flow sage sync
+574c123e5 Merged in TWX-2448-consumption-report (pull request #2239)
+ae69be56b Fix tag filtering
+6e04f3fa6 Merged in TWX-2448-consumption-report (pull request #2238)
+3a0108346 Fix photo issue
+bff33e934 Merged in TWX-2448-consumption-report (pull request #2237)
+c71661428 Fix photo
+ccc3a8e1d Merged in fix-custom-stock-csv (pull request #2235)
+f4fd72d97 Merged in TWX-2448-consumption-report (pull request #2234)
+672ef221e xMerge branch 'TWX-2448-consumption-report' of https://bitbucket.org/chris-stobbs/tagworx-inventory into TWX-2448-consumption-report
+24d1c7ba4 Fix photo issue
+19718d0ba fix: Fix the issue about error in saveInventoryStockItemcsv
+e5f5cddc4 Merge branch 'TWX-2309-capacity-dashboard-group-by-tag-repeat-due-to-stage-being-merged-into-dev' into develop
+421702759 Update ProductService.ts
+896d26c06 Merge branch 'TWX-2309-capacity-dashboard-group-by-tag-repeat-due-to-stage-being-merged-into-dev' into develop
+04ba54799 Update ProductService.ts
+6b2dde4cd Merge branch 'TWX-2309-capacity-dashboard-group-by-tag-repeat-due-to-stage-being-merged-into-dev' into develop
+f8ac4149d fix for null check
+6780ab866 Merge branch 'TWX-2309-capacity-dashboard-group-by-tag-repeat-due-to-stage-being-merged-into-dev' into develop
+d4730e97a adding all the variables
+d4df1db3c Merged in TWX-2448-consumption-report (pull request #2233)
+af64555db Merged in TWX-2448-consumption-report (pull request #2232)
+ubuntu@ip-172-31-23-182:~/tagworx-inventory$

@@ -1,0 +1,272 @@
+ubuntu@ip-172-31-10-10:~/tagworx-inventory$ nvm use 16
+Now using node v16.20.2 (npm v8.19.4)
+ubuntu@ip-172-31-10-10:~/tagworx-inventory$ git pull origin develop
+Username for 'https://bitbucket.org': team-techragers
+Password for 'https://team-techragers@bitbucket.org':
+remote: Enumerating objects: 13, done.
+remote: Counting objects: 100% (13/13), done.
+remote: Compressing objects: 100% (7/7), done.
+remote: Total 7 (delta 6), reused 0 (delta 0), pack-reused 0 (from 0)
+Unpacking objects: 100% (7/7), done.
+From https://bitbucket.org/chris-stobbs/tagworx-inventory/src/develop
+ * branch                  develop    -> FETCH_HEAD
+   a3131805e7..53bdf9b189  develop    -> origin/develop
+Updating a3131805e7..53bdf9b189
+Fast-forward
+ server/src/services/Flow/FlowStockCheckService.ts | 320 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++------------------------------------------------------------------
+ 1 file changed, 174 insertions(+), 146 deletions(-)
+ubuntu@ip-172-31-10-10:~/tagworx-inventory$ ll
+total 2328
+drwxrwxr-x   14 ubuntu ubuntu    4096 Apr 15 13:49 ./
+drwxr-xr-x   28 ubuntu ubuntu    4096 Apr 10 09:52 ../
+drwxrwxr-x    2 ubuntu ubuntu    4096 Apr  1 06:57 .circleci/
+drwxr-xr-x    2 ubuntu ubuntu    4096 Apr  1 06:58 .cursor/
+drwxrwxr-x    8 ubuntu ubuntu    4096 Apr 15 13:57 .git/
+-rw-rw-r--    1 ubuntu ubuntu    1813 Apr  9 08:47 .gitignore
+drwxr-xr-x    3 ubuntu ubuntu    4096 Apr  1 06:58 .infra/
+-rw-r--r--    1 ubuntu ubuntu      90 Apr  1 06:47 .prettierrc
+-rw-rw-r--    1 ubuntu ubuntu     955 Apr  9 08:47 README.md
+-rw-rw-r--    1 ubuntu ubuntu       0 Apr  8 07:27 Tip:
+-rw-r--r--    1 ubuntu ubuntu     332 Apr  1 06:47 appspec.yml
+drwxr-xr-x    2 ubuntu ubuntu    4096 Apr 15 13:49 backup/
+-rw-r--r--    1 ubuntu ubuntu    7370 Apr  1 06:47 bitbucket-pipelines.yml
+-rw-r--r--    1 ubuntu ubuntu    1532 Apr  1 06:47 buildspec.yml
+drwxrwxr-x    7 ubuntu ubuntu    4096 Apr  9 13:19 client/
+-rw-r--r--    1 ubuntu ubuntu     648 Apr  1 06:47 commitlint.config.js
+drwxrwxr-x    5 ubuntu ubuntu    4096 Apr  1 06:57 core/
+drwxrwxr-x    4 ubuntu ubuntu    4096 Apr  9 09:23 e2e/
+-rw-r--r--    1 ubuntu ubuntu     153 Apr  1 06:47 lerna.json
+drwxr-xr-x    5 ubuntu ubuntu    4096 Apr  1 06:57 local-mongo/
+drwxrwxr-x 1848 ubuntu ubuntu   69632 Apr 11 13:40 node_modules/
+-rw-r--r--    1 ubuntu ubuntu     416 Apr  1 06:47 nx.json
+-rw-rw-r--    1 ubuntu ubuntu    2646 Apr  9 08:47 package.json
+drwxrwxr-x    2 ubuntu ubuntu    4096 Apr 10 03:43 scripts/
+drwxrwxr-x    8 ubuntu ubuntu    4096 Apr 11 13:40 server/
+-rw-r--r--    1 ubuntu ubuntu     796 Apr  1 06:47 tsconfig.json
+-rw-rw-r--    1 ubuntu ubuntu 1126701 Apr  9 14:15 yarn-error.log
+-rw-rw-r--    1 ubuntu ubuntu 1074176 Apr  9 13:19 yarn.lock
+ubuntu@ip-172-31-10-10:~/tagworx-inventory$ cd scripts/
+ubuntu@ip-172-31-10-10:~/tagworx-inventory/scripts$ ll
+total 20
+drwxrwxr-x  2 ubuntu ubuntu 4096 Apr 10 03:43 ./
+drwxrwxr-x 14 ubuntu ubuntu 4096 Apr 15 13:49 ../
+-rw-r--r--  1 ubuntu ubuntu  480 Apr 10 03:43 AfterInstallHook.sh
+-rw-r--r--  1 ubuntu ubuntu  431 Apr  9 13:53 AfterInstallHook.sh_bck
+-rwxr-xr-x  1 ubuntu ubuntu   36 Apr  1 06:47 BeforeInstallHook.sh*
+ubuntu@ip-172-31-10-10:~/tagworx-inventory/scripts$ cat AfterInstallHook.sh
+
+#!/bin/bash
+set -e export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+nvm use 16
+echo "Using Node version: $(node -v)"
+echo "Using Yarn version: $(yarn -v)"
+sudo rm -rf /home/ubuntu/tagworx-inventory/node_modules
+cd /home/ubuntu/tagworx-inventory/
+yarn install
+export NODE_OPTIONS=--max_old_space_size=4096
+yarn build-no-cache
+yarn build
+cd /home/ubuntu/tagworx-inventory/server/
+pm2 delete tagworx-inventory
+pm2 start . --name tagworx-inventory --time
+ubuntu@ip-172-31-10-10:~/tagworx-inventory/scripts$ nvm use 16
+Now using node v16.20.2 (npm v8.19.4)
+ubuntu@ip-172-31-10-10:~/tagworx-inventory/scripts$ bash ./AfterInstallHook.sh
+Now using node v16.20.2 (npm v8.19.4)
+Using Node version: v16.20.2
+Using Yarn version: 1.22.5
+yarn install v1.22.5
+[1/4] Resolving packages...
+[2/4] Fetching packages...
+info fsevents@2.3.2: The platform "linux" is incompatible with this module.
+info "fsevents@2.3.2" is an optional dependency and failed compatibility check. Excluding it from installation.
+info @swc/core-android-arm-eabi@1.2.168: The platform "linux" is incompatible with this module.
+info "@swc/core-android-arm-eabi@1.2.168" is an optional dependency and failed compatibility check. Excluding it from installation.
+info @swc/core-android-arm-eabi@1.2.168: The CPU architecture "x64" is incompatible with this module.
+info @swc/core-android-arm64@1.2.168: The platform "linux" is incompatible with this module.
+info "@swc/core-android-arm64@1.2.168" is an optional dependency and failed compatibility check. Excluding it from installation.
+info @swc/core-android-arm64@1.2.168: The CPU architecture "x64" is incompatible with this module.
+info @swc/core-darwin-arm64@1.2.168: The platform "linux" is incompatible with this module.
+info "@swc/core-darwin-arm64@1.2.168" is an optional dependency and failed compatibility check. Excluding it from installation.
+info @swc/core-darwin-arm64@1.2.168: The CPU architecture "x64" is incompatible with this module.
+info @swc/core-darwin-x64@1.2.168: The platform "linux" is incompatible with this module.
+info "@swc/core-darwin-x64@1.2.168" is an optional dependency and failed compatibility check. Excluding it from installation.
+info @swc/core-freebsd-x64@1.2.168: The platform "linux" is incompatible with this module.
+info "@swc/core-freebsd-x64@1.2.168" is an optional dependency and failed compatibility check. Excluding it from installation.
+info @swc/core-linux-arm-gnueabihf@1.2.168: The CPU architecture "x64" is incompatible with this module.
+info "@swc/core-linux-arm-gnueabihf@1.2.168" is an optional dependency and failed compatibility check. Excluding it from installation.
+info @swc/core-linux-arm64-gnu@1.2.168: The CPU architecture "x64" is incompatible with this module.
+info "@swc/core-linux-arm64-gnu@1.2.168" is an optional dependency and failed compatibility check. Excluding it from installation.
+info @swc/core-linux-arm64-musl@1.2.168: The CPU architecture "x64" is incompatible with this module.
+info "@swc/core-linux-arm64-musl@1.2.168" is an optional dependency and failed compatibility check. Excluding it from installation.
+info @swc/core-win32-arm64-msvc@1.2.168: The platform "linux" is incompatible with this module.
+info "@swc/core-win32-arm64-msvc@1.2.168" is an optional dependency and failed compatibility check. Excluding it from installation.
+info @swc/core-win32-arm64-msvc@1.2.168: The CPU architecture "x64" is incompatible with this module.
+info @swc/core-win32-ia32-msvc@1.2.168: The platform "linux" is incompatible with this module.
+info "@swc/core-win32-ia32-msvc@1.2.168" is an optional dependency and failed compatibility check. Excluding it from installation.
+info @swc/core-win32-ia32-msvc@1.2.168: The CPU architecture "x64" is incompatible with this module.
+info @swc/core-win32-x64-msvc@1.2.168: The platform "linux" is incompatible with this module.
+info "@swc/core-win32-x64-msvc@1.2.168" is an optional dependency and failed compatibility check. Excluding it from installation.
+info fsevents@2.1.2: The platform "linux" is incompatible with this module.
+info "fsevents@2.1.2" is an optional dependency and failed compatibility check. Excluding it from installation.
+info fsevents@1.2.13: The platform "linux" is incompatible with this module.
+info "fsevents@1.2.13" is an optional dependency and failed compatibility check. Excluding it from installation.
+[3/4] Linking dependencies...
+warning "lerna > @lerna/version > @lerna/github-client > @octokit/rest > @octokit/plugin-request-log@1.0.4" has unmet peer dependency "@octokit/core@>=3".
+warning "workspace-aggregator-6693ad9d-66a8-425c-8d3c-ba3ad06f4968 > @tagworx/server > symbology@3.0.13" has unmet peer dependency "@mapbox/node-pre-gyp@^1.0.2".
+warning "workspace-aggregator-6693ad9d-66a8-425c-8d3c-ba3ad06f4968 > @tagworx/client > @atlaskit/tooltip@17.6.5" has incorrect peer dependency "react@^16.8.0".
+warning "workspace-aggregator-6693ad9d-66a8-425c-8d3c-ba3ad06f4968 > @tagworx/client > @atlaskit/tooltip@17.6.5" has incorrect peer dependency "react-dom@^16.8.0".
+warning "workspace-aggregator-6693ad9d-66a8-425c-8d3c-ba3ad06f4968 > @tagworx/client > @chakra-ui/react@1.8.8" has unmet peer dependency "@emotion/react@^11.0.0".
+warning "workspace-aggregator-6693ad9d-66a8-425c-8d3c-ba3ad06f4968 > @tagworx/client > @chakra-ui/react@1.8.8" has unmet peer dependency "@emotion/styled@^11.0.0".
+warning "workspace-aggregator-6693ad9d-66a8-425c-8d3c-ba3ad06f4968 > @tagworx/client > @chakra-ui/react@1.8.8" has unmet peer dependency "framer-motion@3.x || 4.x || 5.x || 6.x".
+warning "workspace-aggregator-6693ad9d-66a8-425c-8d3c-ba3ad06f4968 > @tagworx/client > react-datepicker@3.8.0" has incorrect peer dependency "react@^16.9.0 || ^17".
+warning "workspace-aggregator-6693ad9d-66a8-425c-8d3c-ba3ad06f4968 > @tagworx/client > react-datepicker@3.8.0" has incorrect peer dependency "react-dom@^16.9.0 || ^17".
+warning "workspace-aggregator-6693ad9d-66a8-425c-8d3c-ba3ad06f4968 > @tagworx/client > react-dropdown@1.9.2" has incorrect peer dependency "react@^0.14.7 || ^15.0.0-0 || ^16.0.0 || ^17.0.0".
+warning "workspace-aggregator-6693ad9d-66a8-425c-8d3c-ba3ad06f4968 > @tagworx/client > react-dropdown@1.9.2" has incorrect peer dependency "react-dom@^0.14.7 || ^15.0.0-0 || ^16.0.0 || ^17.0.0".
+warning "workspace-aggregator-6693ad9d-66a8-425c-8d3c-ba3ad06f4968 > @tagworx/client > react-dropdown-select@4.11.3" has unmet peer dependency "prop-types@>=15.7.2".
+warning "workspace-aggregator-6693ad9d-66a8-425c-8d3c-ba3ad06f4968 > @tagworx/client > react-json-view@1.21.3" has incorrect peer dependency "react@^17.0.0 || ^16.3.0 || ^15.5.4".
+warning "workspace-aggregator-6693ad9d-66a8-425c-8d3c-ba3ad06f4968 > @tagworx/client > react-json-view@1.21.3" has incorrect peer dependency "react-dom@^17.0.0 || ^16.3.0 || ^15.5.4".
+warning "workspace-aggregator-6693ad9d-66a8-425c-8d3c-ba3ad06f4968 > @tagworx/client > react-modal@3.14.4" has incorrect peer dependency "react@^0.14.0 || ^15.0.0 || ^16 || ^17".
+warning "workspace-aggregator-6693ad9d-66a8-425c-8d3c-ba3ad06f4968 > @tagworx/client > react-modal@3.14.4" has incorrect peer dependency "react-dom@^0.14.0 || ^15.0.0 || ^16 || ^17".
+warning "workspace-aggregator-6693ad9d-66a8-425c-8d3c-ba3ad06f4968 > @tagworx/client > react-sortable-tree@2.8.0" has incorrect peer dependency "react@^16.3.0".
+warning "workspace-aggregator-6693ad9d-66a8-425c-8d3c-ba3ad06f4968 > @tagworx/client > react-sortable-tree@2.8.0" has unmet peer dependency "react-dnd@^7.3.0".
+warning "workspace-aggregator-6693ad9d-66a8-425c-8d3c-ba3ad06f4968 > @tagworx/client > react-sortable-tree@2.8.0" has incorrect peer dependency "react-dom@^16.3.0".
+warning "workspace-aggregator-6693ad9d-66a8-425c-8d3c-ba3ad06f4968 > @tagworx/client > react-spinners@0.10.6" has incorrect peer dependency "react@^16.0.0 || ^17.0.0".
+warning "workspace-aggregator-6693ad9d-66a8-425c-8d3c-ba3ad06f4968 > @tagworx/client > react-spinners@0.10.6" has incorrect peer dependency "react-dom@^16.0.0 || ^17.0.0".
+warning "workspace-aggregator-6693ad9d-66a8-425c-8d3c-ba3ad06f4968 > @tagworx/client > react-spreadsheet@0.9.2" has unmet peer dependency "scheduler@>=0.19.0".
+warning "workspace-aggregator-6693ad9d-66a8-425c-8d3c-ba3ad06f4968 > @tagworx/client > recharts@2.6.2" has unmet peer dependency "prop-types@^15.6.0".
+warning "workspace-aggregator-6693ad9d-66a8-425c-8d3c-ba3ad06f4968 > @tagworx/client > recoil-nexus@0.5.1" has incorrect peer dependency "typescript@>=4.1.0".
+warning "workspace-aggregator-6693ad9d-66a8-425c-8d3c-ba3ad06f4968 > @tagworx/client > slick-carousel@1.8.1" has unmet peer dependency "jquery@>=1.8.0".
+warning "workspace-aggregator-6693ad9d-66a8-425c-8d3c-ba3ad06f4968 > @tagworx/client > styled-jsx@3.4.7" has incorrect peer dependency "react@15.x.x || 16.x.x || 17.x.x".
+warning "workspace-aggregator-6693ad9d-66a8-425c-8d3c-ba3ad06f4968 > @tagworx/client > enzyme-adapter-react-16@1.15.6" has incorrect peer dependency "react@^16.0.0-0".
+warning "workspace-aggregator-6693ad9d-66a8-425c-8d3c-ba3ad06f4968 > @tagworx/client > enzyme-adapter-react-16@1.15.6" has incorrect peer dependency "react-dom@^16.0.0-0".
+warning "workspace-aggregator-6693ad9d-66a8-425c-8d3c-ba3ad06f4968 > @tagworx/server > tslint-config-airbnb > tslint-eslint-rules@5.4.0" has incorrect peer dependency "typescript@^2.2.0 || ^3.0.0".
+warning "workspace-aggregator-6693ad9d-66a8-425c-8d3c-ba3ad06f4968 > @tagworx/server > tslint-config-airbnb > tslint-microsoft-contrib@5.2.1" has incorrect peer dependency "typescript@^2.1.0 || ^3.0.0".
+warning "workspace-aggregator-6693ad9d-66a8-425c-8d3c-ba3ad06f4968 > @tagworx/client > @atlaskit/tooltip > @atlaskit/analytics-next@8.3.5" has incorrect peer dependency "react@^16.8.0".
+warning "workspace-aggregator-6693ad9d-66a8-425c-8d3c-ba3ad06f4968 > @tagworx/client > @atlaskit/tooltip > @atlaskit/ds-lib@2.1.2" has incorrect peer dependency "react@^16.8.0".
+warning "workspace-aggregator-6693ad9d-66a8-425c-8d3c-ba3ad06f4968 > @tagworx/client > @atlaskit/tooltip > @atlaskit/motion@1.3.0" has incorrect peer dependency "react@^16.8.0".
+warning "workspace-aggregator-6693ad9d-66a8-425c-8d3c-ba3ad06f4968 > @tagworx/client > @atlaskit/tooltip > @atlaskit/popper@5.4.5" has incorrect peer dependency "react@^16.8.0".
+warning "workspace-aggregator-6693ad9d-66a8-425c-8d3c-ba3ad06f4968 > @tagworx/client > @atlaskit/tooltip > @atlaskit/portal@4.2.12" has incorrect peer dependency "react@^16.8.0".
+warning "workspace-aggregator-6693ad9d-66a8-425c-8d3c-ba3ad06f4968 > @tagworx/client > @atlaskit/tooltip > @atlaskit/portal@4.2.12" has incorrect peer dependency "react-dom@^16.8.0".
+warning "workspace-aggregator-6693ad9d-66a8-425c-8d3c-ba3ad06f4968 > @tagworx/client > @atlaskit/tooltip > @atlaskit/theme@12.2.5" has incorrect peer dependency "react@^16.8.0".
+warning "workspace-aggregator-6693ad9d-66a8-425c-8d3c-ba3ad06f4968 > @tagworx/client > @atlaskit/tooltip > @atlaskit/tokens@0.13.0" has incorrect peer dependency "react@^16.8.0".
+warning "workspace-aggregator-6693ad9d-66a8-425c-8d3c-ba3ad06f4968 > @tagworx/client > @chakra-ui/react > @chakra-ui/accordion@1.4.11" has unmet peer dependency "framer-motion@3.x || 4.x || 5.x || 6.x".
+warning "workspace-aggregator-6693ad9d-66a8-425c-8d3c-ba3ad06f4968 > @tagworx/client > @chakra-ui/react > @chakra-ui/checkbox@1.7.1" has unmet peer dependency "framer-motion@3.x || 4.x || 5.x || 6.x".
+warning "workspace-aggregator-6693ad9d-66a8-425c-8d3c-ba3ad06f4968 > @tagworx/client > @chakra-ui/react > @chakra-ui/css-reset@1.1.3" has unmet peer dependency "@emotion/react@>=10.0.35".
+warning "workspace-aggregator-6693ad9d-66a8-425c-8d3c-ba3ad06f4968 > @tagworx/client > @chakra-ui/react > @chakra-ui/menu@1.8.11" has unmet peer dependency "framer-motion@3.x || 4.x || 5.x || 6.x".
+warning "workspace-aggregator-6693ad9d-66a8-425c-8d3c-ba3ad06f4968 > @tagworx/client > @chakra-ui/react > @chakra-ui/modal@1.11.1" has unmet peer dependency "framer-motion@3.x || 4.x || 5.x || 6.x".
+warning "workspace-aggregator-6693ad9d-66a8-425c-8d3c-ba3ad06f4968 > @tagworx/client > @chakra-ui/react > @chakra-ui/popover@1.11.9" has unmet peer dependency "framer-motion@3.x || 4.x || 5.x || 6.x".
+warning "workspace-aggregator-6693ad9d-66a8-425c-8d3c-ba3ad06f4968 > @tagworx/client > @chakra-ui/react > @chakra-ui/provider@1.7.14" has unmet peer dependency "@emotion/react@^11.0.0".
+warning "workspace-aggregator-6693ad9d-66a8-425c-8d3c-ba3ad06f4968 > @tagworx/client > @chakra-ui/react > @chakra-ui/provider@1.7.14" has unmet peer dependency "@emotion/styled@^11.0.0".
+warning "workspace-aggregator-6693ad9d-66a8-425c-8d3c-ba3ad06f4968 > @tagworx/client > @chakra-ui/react > @chakra-ui/skeleton@1.2.14" has unmet peer dependency "@emotion/react@^11.0.0".
+warning "workspace-aggregator-6693ad9d-66a8-425c-8d3c-ba3ad06f4968 > @tagworx/client > @chakra-ui/react > @chakra-ui/skeleton@1.2.14" has unmet peer dependency "@emotion/styled@^11.0.0".
+warning "workspace-aggregator-6693ad9d-66a8-425c-8d3c-ba3ad06f4968 > @tagworx/client > @chakra-ui/react > @chakra-ui/switch@1.3.10" has unmet peer dependency "framer-motion@3.x || 4.x || 5.x || 6.x".
+warning "workspace-aggregator-6693ad9d-66a8-425c-8d3c-ba3ad06f4968 > @tagworx/client > @chakra-ui/react > @chakra-ui/system@1.12.1" has unmet peer dependency "@emotion/react@^11.0.0".
+warning "workspace-aggregator-6693ad9d-66a8-425c-8d3c-ba3ad06f4968 > @tagworx/client > @chakra-ui/react > @chakra-ui/system@1.12.1" has unmet peer dependency "@emotion/styled@^11.0.0".
+warning "workspace-aggregator-6693ad9d-66a8-425c-8d3c-ba3ad06f4968 > @tagworx/client > @chakra-ui/react > @chakra-ui/toast@1.5.9" has unmet peer dependency "framer-motion@3.x || 4.x || 5.x || 6.x".
+warning "workspace-aggregator-6693ad9d-66a8-425c-8d3c-ba3ad06f4968 > @tagworx/client > @chakra-ui/react > @chakra-ui/tooltip@1.5.1" has unmet peer dependency "framer-motion@3.x || 4.x || 5.x || 6.x".
+warning "workspace-aggregator-6693ad9d-66a8-425c-8d3c-ba3ad06f4968 > @tagworx/client > @chakra-ui/react > @chakra-ui/transition@1.4.8" has unmet peer dependency "framer-motion@3.x || 4.x || 5.x || 6.x".
+warning "workspace-aggregator-6693ad9d-66a8-425c-8d3c-ba3ad06f4968 > @tagworx/client > react-datepicker > react-onclickoutside@6.12.1" has incorrect peer dependency "react@^15.5.x || ^16.x || ^17.x".
+warning "workspace-aggregator-6693ad9d-66a8-425c-8d3c-ba3ad06f4968 > @tagworx/client > react-datepicker > react-onclickoutside@6.12.1" has incorrect peer dependency "react-dom@^15.5.x || ^16.x || ^17.x".
+warning "workspace-aggregator-6693ad9d-66a8-425c-8d3c-ba3ad06f4968 > @tagworx/client > react-datepicker > react-popper@1.3.11" has incorrect peer dependency "react@0.14.x || ^15.0.0 || ^16.0.0 || ^17.0.0".
+warning "workspace-aggregator-6693ad9d-66a8-425c-8d3c-ba3ad06f4968 > @tagworx/client > react-json-view > flux@4.0.4" has incorrect peer dependency "react@^15.0.2 || ^16.0.0 || ^17.0.0".
+warning "workspace-aggregator-6693ad9d-66a8-425c-8d3c-ba3ad06f4968 > @tagworx/client > react-router > mini-create-react-context@0.4.1" has incorrect peer dependency "react@^0.14.0 || ^15.0.0 || ^16.0.0 || ^17.0.0".
+warning "workspace-aggregator-6693ad9d-66a8-425c-8d3c-ba3ad06f4968 > @tagworx/client > react-sortable-tree > frontend-collective-react-dnd-scrollzone@1.0.2" has incorrect peer dependency "react-dnd@^7.3.0".
+warning "workspace-aggregator-6693ad9d-66a8-425c-8d3c-ba3ad06f4968 > @tagworx/client > react-sortable-tree > react-virtualized@9.22.3" has incorrect peer dependency "react@^15.3.0 || ^16.0.0-alpha".
+warning "workspace-aggregator-6693ad9d-66a8-425c-8d3c-ba3ad06f4968 > @tagworx/client > react-sortable-tree > react-virtualized@9.22.3" has incorrect peer dependency "react-dom@^15.3.0 || ^16.0.0-alpha".
+warning "workspace-aggregator-6693ad9d-66a8-425c-8d3c-ba3ad06f4968 > @tagworx/client > react-spreadsheet > use-context-selector@1.4.1" has unmet peer dependency "scheduler@>=0.19.0".
+warning "workspace-aggregator-6693ad9d-66a8-425c-8d3c-ba3ad06f4968 > @tagworx/client > recharts > react-smooth@2.0.3" has unmet peer dependency "prop-types@^15.6.0".
+warning "workspace-aggregator-6693ad9d-66a8-425c-8d3c-ba3ad06f4968 > @tagworx/client > enzyme-adapter-react-16 > enzyme-adapter-utils@1.14.0" has incorrect peer dependency "react@0.13.x || 0.14.x || ^15.0.0-0 || ^16.0.0-0".
+warning "workspace-aggregator-6693ad9d-66a8-425c-8d3c-ba3ad06f4968 > @tagworx/client > enzyme-adapter-react-16 > react-test-renderer@16.14.0" has incorrect peer dependency "react@^16.14.0".
+warning "workspace-aggregator-6693ad9d-66a8-425c-8d3c-ba3ad06f4968 > @tagworx/client > @atlaskit/tooltip > @atlaskit/analytics-next > @atlaskit/analytics-next-stable-react-context@1.0.1" has incorrect peer dependency "react@^16.8.0".
+warning "workspace-aggregator-6693ad9d-66a8-425c-8d3c-ba3ad06f4968 > @tagworx/client > @chakra-ui/react > @chakra-ui/modal > react-remove-scroll@2.4.1" has incorrect peer dependency "react@^16.8.0 || ^17.0.0".
+warning "workspace-aggregator-6693ad9d-66a8-425c-8d3c-ba3ad06f4968 > @tagworx/client > @chakra-ui/react > @chakra-ui/toast > @reach/alert@0.13.2" has incorrect peer dependency "react@^16.8.0 || 17.x".
+warning "workspace-aggregator-6693ad9d-66a8-425c-8d3c-ba3ad06f4968 > @tagworx/client > @chakra-ui/react > @chakra-ui/toast > @reach/alert@0.13.2" has incorrect peer dependency "react-dom@^16.8.0 || 17.x".
+warning "workspace-aggregator-6693ad9d-66a8-425c-8d3c-ba3ad06f4968 > @tagworx/client > enzyme-adapter-react-16 > enzyme-adapter-utils > airbnb-prop-types@2.16.0" has incorrect peer dependency "react@^0.14 || ^15.0.0 || ^16.0.0-alpha".
+warning "workspace-aggregator-6693ad9d-66a8-425c-8d3c-ba3ad06f4968 > @tagworx/client > @chakra-ui/react > @chakra-ui/modal > @chakra-ui/focus-lock > react-focus-lock@2.5.2" has incorrect peer dependency"react@^16.8.0 || ^17.0.0".
+warning "workspace-aggregator-6693ad9d-66a8-425c-8d3c-ba3ad06f4968 > @tagworx/client > @chakra-ui/react > @chakra-ui/toast > @reach/alert > @reach/utils@0.13.2" has incorrect peer dependency "react@^16.8.0 || 17.x".
+warning "workspace-aggregator-6693ad9d-66a8-425c-8d3c-ba3ad06f4968 > @tagworx/client > @chakra-ui/react > @chakra-ui/toast > @reach/alert > @reach/utils@0.13.2" has incorrect peer dependency "react-dom@^16.8.0 || 17.x".
+warning "workspace-aggregator-6693ad9d-66a8-425c-8d3c-ba3ad06f4968 > @tagworx/client > @chakra-ui/react > @chakra-ui/toast > @reach/alert > @reach/visually-hidden@0.13.2" has incorrect peer dependency "react@^16.8.0 || 17.x".
+warning "workspace-aggregator-6693ad9d-66a8-425c-8d3c-ba3ad06f4968 > @tagworx/client > @chakra-ui/react > @chakra-ui/toast > @reach/alert > @reach/visually-hidden@0.13.2" has incorrect peer dependency "react-dom@^16.8.0 || 17.x".
+[4/4] Building fresh packages...
+warning Your current version of Yarn is out of date. The latest version is "1.22.22", while you're on "1.22.5".
+info To upgrade, run the following command:
+$ sudo apt-get update && sudo apt-get install yarn
+$ npm run bootstrap
+
+> tagworx@2.14.0 bootstrap
+> lerna bootstrap
+
+lerna notice cli v3.22.1
+lerna info bootstrap root only
+yarn install v1.22.5
+[1/4] Resolving packages...
+success Already up-to-date.
+$ npm run bootstrap
+
+> tagworx@2.14.0 bootstrap
+> lerna bootstrap
+
+lerna notice cli v3.22.1
+lerna WARN bootstrap Skipping recursive execution
+Done in 1.89s.
+Done in 142.33s.
+yarn run v1.22.5
+$ nx run-many --target=build --all --skip-nx-cache
+
+    ✔  nx run core:build (45s)
+    ✔  nx run server:build (45s)
+    ✔  nx run client:build (2m)
+
+ —————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
+
+ >  NX   Successfully ran target build for 3 projects (2m)
+
+
+ >  NX   Nx Cloud Problems
+
+   - Error when connecting to Nx Cloud. Code: ENOTFOUND. Error: getaddrinfo ENOTFOUND api.nrwl.io.
+
+Done in 100.98s.
+yarn run v1.22.5
+$ nx run-many --target=build --all
+
+    ✔  nx run core:build  [existing outputs match the cache, left as is]
+    ✔  nx run server:build  [existing outputs match the cache, left as is]
+    ✔  nx run client:build  [existing outputs match the cache, left as is]
+
+ —————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
+
+ >  NX   Successfully ran target build for 3 projects (77ms)
+
+   Nx read the output from the cache instead of running the command for 3 out of 3 tasks.
+
+
+ >  NX   Nx Cloud Problems
+
+   - Cannot connect to Nx Cloud (scope: api, code: ENOTFOUND).
+
+Done in 41.22s.
+[PM2] Applying action deleteProcessId on app [tagworx-inventory](ids: [ 18 ])
+[PM2] [tagworx-inventory](18) ✓
+┌─────┬─────────────────────────┬─────────────┬─────────┬─────────┬──────────┬────────┬──────┬───────────┬──────────┬──────────┬──────────┬──────────┐
+│ id  │ name                    │ namespace   │ version │ mode    │ pid      │ uptime │ ↺    │ status    │ cpu      │ mem      │ user     │ watching │
+├─────┼─────────────────────────┼─────────────┼─────────┼─────────┼──────────┼────────┼──────┼───────────┼──────────┼──────────┼──────────┼──────────┤
+│ 7   │ tagworx-froch-orders    │ default     │ 0.0.1   │ fork    │ 7113     │ 6D     │ 1    │ online    │ 0%       │ 78.9mb   │ root     │ disabled │
+│ 6   │ tagworx-orders-in       │ default     │ 0.0.1   │ fork    │ 6451     │ 6D     │ 0    │ online    │ 0%       │ 74.9mb   │ root     │ disabled │
+│ 8   │ tagworx-pos             │ default     │ 0.0.1   │ fork    │ 7896     │ 6D     │ 0    │ online    │ 0%       │ 64.2mb   │ root     │ disabled │
+│ 2   │ tagworx-stockcheck      │ default     │ 0.0.1   │ fork    │ 8059     │ 6D     │ 5    │ online    │ 0%       │ 70.1mb   │ root     │ disabled │
+└─────┴─────────────────────────┴─────────────┴─────────┴─────────┴──────────┴────────┴──────┴───────────┴──────────┴──────────┴──────────┴──────────┘
+[PM2] Starting /home/ubuntu/tagworx-inventory/server in fork_mode (1 instance)
+[PM2] Done.
+┌─────┬─────────────────────────┬─────────────┬─────────┬─────────┬──────────┬────────┬──────┬───────────┬──────────┬──────────┬──────────┬──────────┐
+│ id  │ name                    │ namespace   │ version │ mode    │ pid      │ uptime │ ↺    │ status    │ cpu      │ mem      │ user     │ watching │
+├─────┼─────────────────────────┼─────────────┼─────────┼─────────┼──────────┼────────┼──────┼───────────┼──────────┼──────────┼──────────┼──────────┤
+│ 7   │ tagworx-froch-orders    │ default     │ 0.0.1   │ fork    │ 7113     │ 6D     │ 1    │ online    │ 0%       │ 78.9mb   │ root     │ disabled │
+│ 19  │ tagworx-inventory       │ default     │ 0.0.1   │ fork    │ 18617    │ 0s     │ 0    │ online    │ 0%       │ 24.4mb   │ ubuntu   │ disabled │
+│ 6   │ tagworx-orders-in       │ default     │ 0.0.1   │ fork    │ 6451     │ 6D     │ 0    │ online    │ 0%       │ 74.9mb   │ root     │ disabled │
+│ 8   │ tagworx-pos             │ default     │ 0.0.1   │ fork    │ 7896     │ 6D     │ 0    │ online    │ 0%       │ 64.2mb   │ root     │ disabled │
+│ 2   │ tagworx-stockcheck      │ default     │ 0.0.1   │ fork    │ 8059     │ 6D     │ 5    │ online    │ 0%       │ 70.6mb   │ root     │ disabled │
+└─────┴─────────────────────────┴─────────────┴─────────┴─────────┴──────────┴────────┴──────┴───────────┴──────────┴──────────┴──────────┴──────────┘
+ubuntu@ip-172-31-10-10:~/tagworx-inventory/scripts$

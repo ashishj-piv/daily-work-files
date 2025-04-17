@@ -1,0 +1,207 @@
+Test_node_16 -  i-097f5fd98b098f4e4
+
+
+
+### Initial Configuration & Buildspec Troubleshooting
+
+Repeated edits and validations of `buildspec.yml` using:
+
+```bash
+vi buildspec.yml
+cat buildspec.yml
+```
+
+---
+
+###  Encountered PM2 Permission Errors:
+```
+[PM2][ERROR] Permission denied, to give access to current user:
+sudo chown ubuntu:ubuntu /home/ubuntu/.pm2/rpc.sock
+```
+
+ **Resolution:**
+```bash
+sudo chown -R ubuntu:ubuntu /home/ubuntu/.pm2
+```
+
+---
+
+###  Node.js Version Conflict in CodeBuild
+
+**Error during `yarn install`:**
+```
+The engine "node" is incompatible with this module. Expected version ">=16". Got "14.21.3"
+```
+
+ **Resolution:**
+
+**Remove preinstalled Node.js:**
+```bash
+sudo apt remove -y nodejs
+```
+
+**Install NVM and Node.js v16:**
+```bash
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
+export NVM_DIR="$HOME/.nvm"
+source "$NVM_DIR/nvm.sh"
+nvm install 16
+nvm use 16
+```
+
+---
+
+###  Output After Node Setup (Captured)
+
+```
+Using Node version: v16.20.2
+Using Yarn version: 1.22.5
+```
+
+---
+
+###  Finalized `buildspec.yml` Script
+
+Used consistent Node.js version across all phases to resolve version mismatch and ensure a successful build.
+
+ **Snippet:**
+```yaml
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      nodejs: null
+    commands:
+      - curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
+      - export NVM_DIR="$HOME/.nvm"
+      - source "$NVM_DIR/nvm.sh"
+      - nvm install 16
+      - nvm use 16
+      - node -v
+      - yarn -v
+  build:
+    commands:
+      - cd core
+      - yarn install
+      - yarn test
+
+artifacts:
+  files:
+    - '**/*'
+```
+
+---
+
+### ##AfterInstallHook.sh Script for Deployment  
+## Final script stored in: `/scripts/AfterInstallHook.sh`
+
+```bash
+#!/bin/bash
+set -e
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+nvm use 16
+
+echo "Using Node version: $(node -v)"
+echo "Using Yarn version: $(yarn -v)"
+
+rm -rf /home/ubuntu/tagworx-inventory/node_modules
+cd /home/ubuntu/tagworx-inventory/
+
+yarn install
+NODE_OPTIONS=--max_old_space_size=4096
+yarn build-no-cache
+yarn build
+
+cd /home/ubuntu/tagworx-inventory/server
+pm2 delete tagworx-inventory || true
+pm2 start . --name tagworx-inventory --time
+```
+
+---
+
+###  Output Logs from AfterInstallHook Execution
+
+```
+Using Node version: v16.20.2
+Using Yarn version: 1.22.5
+
+yarn install v1.22.5
+[1/4]   Resolving packages...
+[2/4]   Fetching packages...
+[3/4]   Linking dependencies...
+[4/4]   Building fresh packages...
+
+ Done in 9.26s.
+
+yarn run v1.22.5
+$ rimraf ./dist
+Done in 0.27s.
+
+yarn run v1.22.5
+$ rimraf .turbo && turbo run build --no-cache
+• Packages in scope: core, server, client
+• Running build in 3 packages
+  Remote caching disabled. Using local cache.
+
+core:build: turbo run build --filter=core
+server:build: turbo run build --filter=server
+client:build: turbo run build --filter=client
+
+core:build:
+core:build: $ tsc -p tsconfig.build.json
+core:build:
+
+server:build:
+server:build: $ tsc -p tsconfig.build.json
+server:build:
+
+client:build:
+client:build: $ next build
+client:build: 
+client:build: info  - Linting and checking validity of types...
+client:build: warn  - No ESLint configuration detected. Run next lint to begin setup
+client:build: 
+client:build: info  - Creating an optimized production build...
+client:build: info  - Compiled successfully
+
+client:build: info  - Collecting page data...
+client:build: info  - Generating static pages (0/5)
+client:build: info  - Generating static pages (5/5)
+client:build: info  - Finalizing page optimization...
+
+client:build: Route (pages)                              Size     First Load JS
+client:build: ┌ ○ /                                      332 B          72.3 kB
+client:build: ├ ○ /_app                                  0 B            72 kB
+client:build: ├ ○ /404                                   194 B          72.4 kB
+client:build: └ ○ /login                                 4.59 kB        77.2 kB
+client:build: + First Load JS shared by all              72.3 kB
+client:build:   ├ chunks/framework-c4b33542e8b302a0.js   45.5 kB
+client:build:   ├ chunks/main-9fd71e348d2f3639.js        21.3 kB
+client:build:   ├ chunks/pages/_app-81e80e31d3a57c6a.js  1.84 kB
+client:build:   └ chunks/webpack-3247dfbaecf1b372.js     3.67 kB
+
+client:build: ○  (Static)  automatically rendered as static HTML (uses no initial props)
+
+  Done in 64.80s.
+
+[PM2][WARN] Applications tagworx-inventory not running, starting...
+[PM2] App [tagworx-inventory] launched (1 instances)
+[PM2] Done.
+```
+
+---
+
+##  Final State & Health Check
+
+-  App deployed using PM2 with `tagworx-inventory` process.
+-  Node and Yarn versions correctly configured.
+-  Clean build across all submodules: `core`, `server`, `client`.
+-  No permission errors or broken dependencies.
+-  NGINX load balancer and Apache web servers functioning correctly.
+
+---
+
+
