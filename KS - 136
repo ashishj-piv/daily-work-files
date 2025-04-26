@@ -1,0 +1,43 @@
+Hello David,
+
+Thank you for reaching out regarding cost tracking for your VMs in the AW Server project. I've reviewed the current setup and confirmed that per-VM costs can be obtained using the instance-billing labels applied to each VM including for March 2025  directly from the GCP Billing Console.
+
+How to View Per-VM Costs in March
+
+Go to: GCP Billing Console
+
+Select Billing Account: KloudStax US - theaamgroup.com
+
+Navigate to Reports
+
+Set the Date Range:
+
+Time range: Custom → March 1–31, 2025
+
+Group by:
+
+Choose Service 
+
+Add Label Filter:
+
+Label key: instance-billing
+
+Apply values: hh, aw1, aw2, aw4 (one at a time)
+
+Review and Download:
+
+View cost per VM in the chart
+
+Click Download CSV to export results
+
+
+
+For ongoing reporting, automation, or dashboarding, we recommend enabling Detailed Usage Export to BigQuery via Billing → Settings. This will allow you to query costs using SQL and generate reports across time periods.
+
+I have attached the Screenshot to View Per-VM Costs for your reference:
+
+
+Please feel free to reach out for any further assistance.
+
+Regards,
+Ashish
